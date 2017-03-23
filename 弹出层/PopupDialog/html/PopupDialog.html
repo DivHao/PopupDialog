@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>示例</title>
+    <link rel="stylesheet" href="../css/PopupDialog.css">
+</head>
+<style>
+	html,body{
+		padding: 0;
+		margin: 0;
+	}
+	.test{
+		display: inline-block;
+		background: deepskyblue;
+		border-radius: 10px;
+		font-size: 1rem;
+		color: #fff;
+		text-align: center;
+		padding: .5rem;
+		margin: 1rem; 
+	}
+</style>
+<body>
+	<div class="test test1">类型一</div>
+	<div class="test test2">类型二</div>
+	<div class="test test3">类型三</div>
+	<div class="test test4">类型四</div>
+	
+</body>
+<script src="../js/commonJs/autoSize(20).js"></script>
+<script src="../js/commonJs/jquery-3.0.0.min.js"></script>
+<script src="../js/PopupDialog.js"></script>
+
+
+<script>
+	//只有提示信息且自动消失
+	$(".test1").on("click",function(){
+		$.fn.PopupDialog({
+			PopupTitle : "温馨提示",
+    		PopupMsg : "加载中...",
+    		loadImg : "../img/loadingGif.gif",
+    		closeImg : "../img/close.png",
+    		time : 3000,
+    		haveImg : false,
+    		haveBtn : false
+		})
+	})
+
+	//提示信息文本+loading图片
+	$(".test2").on("click",function(){
+		$.fn.PopupDialog({
+			PopupTitle : "温馨提示",
+    		PopupMsg : "加载中...",
+    		loadImg : "../img/loadingGif.gif",
+    		closeImg : "../img/close.png",
+    		time : 3000,
+    		haveImg : true,
+    		haveBtn : false
+		})
+	})
+
+	//弹出对话框用户自行关闭
+	$(".test3").on("click",function(){
+		$.fn.PopupDialog({
+			PopupTitle : "温馨提示",
+    		PopupMsg : "提示内容提示内容",
+    		loadImg : "../img/loadingGif.gif",
+    		closeImg : "../img/close.png",
+    		time : 3000,
+    		haveImg : true,
+    		haveBtn : true
+		})
+	})
+
+	//只有图片
+	$(".test4").on("click",function(){
+		$.fn.PopupDialog({
+			PopupTitle : "温馨提示",
+    		PopupMsg : "",
+    		loadImg : "../img/loadingGif.gif",
+    		closeImg : "../img/close.png",
+    		time : 3000,
+    		haveImg : true,
+    		haveBtn : false
+		})
+	})
+
+	$("body").on("click", "#zh-colse-PopupDialog",function(){
+		$.fn.cLosePopupDialog();
+	})
+
+	$("body").on("click", "#zh-PopupDialog-info",function(){
+		$.fn.cLosePopupDialog();
+	})
+</script>
+</html>
